@@ -1,0 +1,71 @@
+:root{
+    --primary-font: 'Poppins', sans-serif;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--primary-font);
+}
+
+body{
+    height: 100vh;
+    width: 100%;
+    background: rgb(23, 23, 36);
+    color: white;
+    display: grid;
+    place-content: center;
+}
+
+.clock{
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    position: relative;
+    border: 2px solid rgba(0, 0, 0, 0.651);
+    box-shadow: 10px 10px 20px 5px rgba(0, 0, 0, 0.438),
+                inset 0px -5px 20px rgba(116, 116, 116, 0.438);
+    
+    display: grid;
+    place-content: center;
+}
+
+.clock span{
+    position: absolute;
+    inset: 20px;
+    text-align: center;
+    transform: rotate(calc(30deg * var(--i)));
+}
+
+.clock span b{
+    font-size: 14px;
+    display: inline-block;
+    transform: rotate(calc(-30deg * var(--i)));
+}
+.hour, .minutes, .seconds{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: var(--height);
+    width: 3px;
+    background: var(--bg);
+    transform-origin: bottom;
+    border-radius: 20px;
+}
+
+.hour{
+    transform: translateX(-50%) translateY(calc(-50% - var(--height)/2)) rotate(calc(30deg * 0));
+    z-index: 3;
+}
+
+.minutes{
+    transform: translateX(-50%) translateY(calc(-50% - var(--height)/2)) rotate(calc(30deg * 0));
+    z-index: 2;
+}
+
+.seconds{
+    transform: translateX(-50%) translateY(calc(-50% - var(--height)/2)) rotate(calc(30deg * 0));
+    width: 2px;
+    z-index: 1;
+}
